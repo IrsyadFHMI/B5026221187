@@ -1,0 +1,67 @@
+
+
+html{
+    height: 140%;
+}
+
+body{
+    background: gainsboro;
+    font-family: 'DM Sans', sans-serif;
+}  
+
+.irsyadSquare{
+    width: 676px;
+    height: 56px;
+    background-color: white;
+    border-radius: 6px;
+    border: solid white 2px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: flex;
+    font-size: 16px;
+    text-decoration: none; 
+    color: black;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.irsyadHeader{
+    text-align: center;
+    font-size: 35px;
+}
+
+.irsyadHeader img{
+    margin-top: 60px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.irsyadHeader h1{
+    font-size: 20px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    color: black;
+}
+
+.irsyadIcon{
+    margin-left: 10px;
+    height: 30px;
+    width: 30px;
+}
+
+.irsyadShare{
+    margin-right: 8px;
+}
+.irsyadSquare:hover{
+    transition: cubic-bezier(.4,0,.2,1) 0.15s;
+    transform: scale(1.05);
+    box-shadow: 1px 2px 3px rgb(28, 32, 36);
+}
+.irsyadNama{
+    text-align: center;
+    font-size: 15px;
+
+}
