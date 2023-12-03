@@ -52,7 +52,7 @@ class PegawaiController extends Controller
 		// passing data pegawai yang didapat ke view edit.blade.php
 		return view('edit',['pegawai' => $pegawai]);
 
-	}
+		}
 
 	// update data pegawai
 	public function update(Request $request)
