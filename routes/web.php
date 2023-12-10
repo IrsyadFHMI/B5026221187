@@ -89,3 +89,22 @@ Route::get('/pegawai/hapus/{id}','App\Http\Controllers\PegawaiController@hapus')
 
 Route::get('/pegawai/cari','App\Http\Controllers\PegawaiController@cari');
 Route::get('/pegawai/View/{id}','App\Http\Controllers\PegawaiController@View');
+
+Route::get('/nilaikuliah','App\Http\Controllers\NilaiKuliahController@index');
+Route::get('/nilaikuliah/tambah1','App\Http\Controllers\NilaiKuliahController@tambah');
+Route::post('/nilaikuliah/store','App\Http\Controllers\NilaiKuliahController@store');
+
+//route CRUD
+Route::get('/keranjangbelanja','App\Http\Controllers\KeranjangController@index');
+Route::get('/keranjangbelanja/beli','App\Http\Controllers\KeranjangController@beli');
+Route::post('/keranjangbelanja/store','App\Http\Controllers\KeranjangController@store');
+Route::get('/keranjangbelanja/hapus/{id}','App\Http\Controllers\KeranjangController@hapus');
+
+Route::get('/sirup','App\Http\Controllers\SirupController@index');
+Route::get('/sirup/tambah2','App\Http\Controllers\SirupController@tambah');
+Route::post('/sirup/store','App\Http\Controllers\SirupController@store');
+Route::get('/sirup/edit2/{kodesirup}','App\Http\Controllers\SirupController@edit');
+Route::post('/sirup/update','App\Http\Controllers\SirupController@update');
+Route::get('/sirup/hapus/{kodesirup}','App\Http\Controllers\SirupController@hapus');
+Route::get('/sirup/View2/{kodesirup}','App\Http\Controllers\SirupController@view');
+
