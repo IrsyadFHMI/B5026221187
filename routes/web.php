@@ -100,6 +100,7 @@ Route::get('/keranjangbelanja/beli','App\Http\Controllers\KeranjangController@be
 Route::post('/keranjangbelanja/store','App\Http\Controllers\KeranjangController@store');
 Route::get('/keranjangbelanja/hapus/{id}','App\Http\Controllers\KeranjangController@hapus');
 
+
 Route::get('/sirup','App\Http\Controllers\SirupController@index');
 Route::get('/sirup/tambah2','App\Http\Controllers\SirupController@tambah');
 Route::post('/sirup/store','App\Http\Controllers\SirupController@store');

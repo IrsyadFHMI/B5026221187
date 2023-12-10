@@ -1,53 +1,36 @@
+
+
 @extends('master')
 
-    @section('konten')
-	<h3>Data Sirup</h3>
+@section('konten')
+	<h3>Data Blueray</h3>
+
+	<a href="/sirup">< Kembali</a>
 
 	<br/>
+	<br/>
 
-    @foreach($sirup as $p)
-    <form action="">
-        {{ csrf_field() }}
-
-        <div class="row">
-            <div class="col-4 border">
-            </div>
-            <div class="col-8">
-                {{-- KODE --}}
-                <div class="form-group row">
-                    <label for="kode" class="col-sm-2 control-label">Kode:</label>
-                    <div class="col-sm-8">
-                        {{ $p->kodesirup }}
-                    </div>
-                </div>
-                {{-- MERK --}}
-                <div class="form-group row">
-                    <label for="merk" class="col-sm-2 control-label">Merk:</label>
-                    <div class="col-sm-8">
-                        {{ $p->merksirup }}
-                    </div>
-                </div>
-                {{-- STOCK --}}
-                <div class="form-group row">
-                    <label for="stock" class="col-sm-2 control-label">Stock:</label>
-                    <div class="col-sm-8">
-                        {{ $p->stocksirup }}
-                    </div>
-                </div>
-                {{-- KETERSEDIAAN --}}
-                <div class="form-group row">
-                    <label for="alamat" class="col-sm-2 control-label">Ketersediaan (Y/N):</label>
-                    <div class="col-sm-8">
-                        {{ $p->tersedia }}
-                    </div>
-                </div>
-
-                <div class="col-sm-2 align-items-center mx-auto">
-                    <a href="/sirup" class="btn btn-primary col-sm-8">OK</a>
-                </div>
-            </div>
+<form action="/sirup/store" method="post">
+    {{ csrf_field() }}
+    {{-- MERK --}}
+    <div class = "form-group row">
+        <label for = "merk" class = "col-sm-2 control-label">Merk</label>
+        <div class = "col-sm-8">
+            <input name="merksirup" type = "text" class = "form-control" id = "merksirup"  placeholder = "Masukkan Merk sirup">
         </div>
-    </form>
-    @endforeach
+    </div>
+    {{-- STOCK --}}
+    <div class = "form-group row">
+        <label for = "stock" class = "col-sm-2 control-label">Stock</label>
+        <div class = "col-sm-8">
+            <input name="stocksirup" type = "number" class = "form-control" id = "stocksirup" placeholder = "Masukkan Stock sirup">
+        </div>
+    </div>
 
-    @endsection
+    <div class="col-sm-2 align-items-center mx-auto">
+        <input type="submit" class="btn btn-primary" value="Simpan">
+    </div>
+
+</form>
+
+@endsection
