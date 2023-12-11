@@ -6,50 +6,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
-class KeranjangController extends Controller
+class KategoriController extends Controller
 {
-	public function index()
-	{
-    	// mengambil data dari table belanja
-        $keranjangbelanja = DB::table('keranjangbelanja')->get();
-    	// mengirim data belanja ke view index
-		return view('index3',['keranjangbelanja' => $keranjangbelanja]);
+    public function index()
+    {
+        $kategori = DB::table('kategori')->get();
+        return view('indexKategori', ['kategori' => $kategori]);
+    }
 
-	}
+    public function view(Request $request)
+    {
+        $id = $request->input('selectedCategory');
+        $kategori = DB::table('kategori')->where('ID', $id)->first();
 
-	// method untuk menampilkan view form tambah belanja
-	public function beli()
-	{
-
-		// memanggil view tambah
-		return view('beli');
-
-	}
-
-	// method untuk insert data ke table belanja
-	public function store(Request $request)
-	{
-		// insert data ke table belanja
-		DB::table('keranjangbelanja')->insert([
-			'ID' => $request->id,
-			'KodeBarang' => $request->kodebarang,
-			'Jumlah' => $request->jumlah,
-			'Harga' => $request->harga
-		]);
-		// alihkan halaman ke halaman belanja
-		return redirect('/keranjangbelanja');
-
-	}
-
-	// method untuk hapus data belanja
-	public function hapus($id)
-	{
-		// menghapus data belanja berdasarkan id yang dipilih
-		DB::table('keranjangbelanja')->where('ID',$id)->delete();
-
-		// alihkan halaman ke halaman belanja
-		return redirect('/keranjangbelanja');
-	}
-
-
+        if ($kategori) {
+            return view('resultKategori', ['kategori' => $kategori]);
+        } else {
+            return abort(404); // Menangani jika kategori tidak ditemukan.
+        }
+    }
 }

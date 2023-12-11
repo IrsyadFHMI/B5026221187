@@ -1,23 +1,20 @@
 @extends('master')
-@section('title', 'Data Kategori')
+@section('title', 'Kategori')
 
 @section('konten')
-    <form action="/index4/cari" method="GET">
+    <p>Pilih Kategori</p>
 
-        <h5 for="kategori">Pilih Kategori</h5>
-
-        <div class="form-group">
-            <select name="cari" class="custom-select custom-select-lg">
-                @foreach ($kategori as $k)
-                    <option value = "{{$k->Nama}}">{{$k->Nama}}</option>
-                @endforeach
-                <option>
-              </select>
-        </div>
-		<input type="submit" class="btn btn-primary ml-3" value="Kirim">
-	</form>
-
-    <br>
+    <form action="/hasilcombo" method="GET">
+        <select name="selectedCategory" id="selectedCategory" class="form-control">
+            @foreach($kategori as $k)
+                <option value="{{ $k->ID }}">{{ $k->Nama }}</option>
+            @endforeach
+        </select>
+        <br>
+        <input type="submit" value="Kirim" class="btn btn-primary">
+    </form>
 
 
+
+    <!-- Tambahkan tombol atau logika yang sesuai di sini -->
 @endsection

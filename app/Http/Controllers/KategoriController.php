@@ -8,25 +8,21 @@ use Illuminate\Support\Facades\DB;
 
 class KategoriController extends Controller
 {
-	public function index()
-	{
-    	// mengambil data dari table pegawai
-		// $pegawai = DB::table('pegawai')->get();
-        $kategori = DB::table('kategori')
-                    ->orderBy('ID', 'asc')
-                    ->paginate(10);
-    	// mengirim data pegawai ke view index
-		return view('index4',['kategori' => $kategori]);
-	}
+    public function index()
+    {
+        $kategori = DB::table('kategori')->get();
+        return view('index4', ['kategori' => $kategori]);
+    }
 
-    public function cari(Request $request)
-	{
-		$cari = $request->cari;
+    public function view(Request $request)
+    {
+        $id = $request->input('selectedCategory');
+        $kategori = DB::table('kategori')->where('ID', $id)->first();
 
-		$kategori = DB::table('kategori')
-		    ->where('Nama','like',"%".$cari."%")
-		    ->paginate();
-
-		return view('kode',['kategori' => $kategori, 'cari' => $cari]);
-	}
+        if ($kategori) {
+            return view('resultKategori', ['kategori' => $kategori]);
+        } else {
+            return abort(404); // Menangani jika kategori tidak ditemukan.
+        }
+    }
 }

@@ -110,5 +110,6 @@ Route::post('/keranjangbelanja/store','App\Http\Controllers\KeranjangController@
 Route::get('/keranjangbelanja/hapus/{id}','App\Http\Controllers\KeranjangController@hapus');
 
 //EAS
-Route::get('kategori','App\Http\Controllers\KategoriController@index');
-Route::get('/kategori/cari','App\Http\Controllers\KategoriController@cari');
+Route::get('/combo','App\Http\Controllers\KategoriController@index');
+Route::get('/hasilcombo','App\Http\Controllers\KategoriController@view');
+
