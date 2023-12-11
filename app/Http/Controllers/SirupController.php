@@ -95,7 +95,7 @@ public function cari(Request $request)
         ->where('merksirup', 'like', "%".$cari."%")
         ->paginate();
 
-        return view('index2', ['sirup' => $sirup, 'cari' => $cari]);
+        return view('index2', ['sirup' => $sirup]);
 }
 
 // method untuk view data

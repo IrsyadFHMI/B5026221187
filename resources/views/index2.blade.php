@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', 'Data Pegawai')
+@section('title', 'Data Sirup')
 
 @section('konten')
 
