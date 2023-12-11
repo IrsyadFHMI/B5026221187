@@ -102,6 +102,7 @@ Route::get('/sirup/edit2/{kodesirup}','App\Http\Controllers\SirupController@edit
 Route::post('/sirup/update','App\Http\Controllers\SirupController@update');
 Route::get('/sirup/hapus/{kodesirup}','App\Http\Controllers\SirupController@hapus');
 Route::get('/sirup/View2/{kodesirup}','App\Http\Controllers\SirupController@view');
+Route::get('/sirup/cari','App\Http\Controllers\SirupController@cari');
 
 Route::get('/keranjangbelanja','App\Http\Controllers\KeranjangController@index');
 Route::get('/keranjangbelanja/beli','App\Http\Controllers\KeranjangController@beli');

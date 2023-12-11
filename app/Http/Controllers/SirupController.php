@@ -49,20 +49,20 @@ class SirupController extends Controller
 
 public function edit($kodesirup)
 {
-    // mengambil data blueray berdasarkan kode yang dipilih
+    // mengambil data berdasarkan kode yang dipilih
     $sirup = DB::table('sirup')
         ->where('kodesirup',$kodesirup)
         ->get();
-        // passing data blueray yang didapat ke view edit.blade.php
+        // passing data yang didapat ke view edit.blade.php
     return view('edit2',['sirup' => $sirup]);
 
 }
 
-// update data blueray
+// update data
 public function update(Request $request)
 {
     $tersedia = ($request->stocksirup > 0) ? 'Y' : 'N';
-    // update data blueray
+    // update data
     DB::table('sirup')
         ->where('kodesirup',$request->kodesirup)
         ->update([
@@ -71,17 +71,17 @@ public function update(Request $request)
         'stocksirup' => $request->stocksirup,
         'tersedia' => $tersedia
     ]);
-    // alihkan halaman ke halaman blueray
+    // alihkan halaman ke halaman
     return redirect('/sirup');
 }
 
-// method untuk hapus data blueray
+// method untuk hapus data
 public function hapus($kodesirup)
 {
-    // menghapus data blueray berdasarkan kode yang dipilih
+    // menghapus data  berdasarkan kode yang dipilih
     DB::table('sirup')->where('kodesirup',$kodesirup)->delete();
 
-    // alihkan halaman ke halaman blueray
+    // alihkan halaman ke halaman
     return redirect('/sirup');
 }
 
@@ -90,22 +90,22 @@ public function cari(Request $request)
     // menangkap data pencarian
     $cari = $request->cari;
 
-    // mengambil data dari table blueray sesuai pencarian data
-    $sirup = DB::table('blueray')
-        ->where('sirup', 'like', "%".$cari."%")
+    // mengambil data dari table sesuai pencarian data
+    $sirup = DB::table('sirup')
+        ->where('merksirup', 'like', "%".$cari."%")
         ->paginate();
 
-        return view('index', ['sirup' => $sirup]);
+        return view('index2', ['sirup' => $sirup, 'cari' => $cari]);
 }
 
-// method untuk view data blueray
+// method untuk view data
 public function view($kodesirup)
 {
-    // mengambil data blueray berdasarkan kode yang dipilih
+    // mengambil data berdasarkan kode yang dipilih
     $sirup = DB::table('sirup')
         ->where('kodesirup', $kodesirup)
         ->get();
-    // passing data blueray yang didapat ke view edit.blade.php
+    // passing data yang didapat ke view edit.blade.php
     return view('View2',['sirup' => $sirup]);
 
 }

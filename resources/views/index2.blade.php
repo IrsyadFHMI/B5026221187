@@ -9,6 +9,15 @@
 
     <a href="/sirup/tambah2" class="btn btn-primary"> + Tambah Barang</a>
 
+    <br/>
+    <p>Cari Data Sirup :</p>
+	<form action="/sirup/cari" method="GET">
+		<input class="form form-control" type="text" name="cari" placeholder="Cari sirup Berdasarkan Nama..." value="{{ old('cari') }}">
+		<input type="submit" value="CARI" class="btn btn-info">
+	</form>
+    <br>
+	<br/>
+
     <table class="table table-striped table-hover">
         <tr>
             <th>kodesirup</th>
