@@ -1,9 +1,7 @@
-
-
 @extends('master')
 
 @section('konten')
-	<h3>Data Blueray</h3>
+	<h3>Data Sirup</h3>
 
 	<a href="/sirup">< Kembali</a>
 
